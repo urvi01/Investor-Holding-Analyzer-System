@@ -1,0 +1,45 @@
+<div class="page-header section-dark" style="background-image: url('assets/img/score.jpg')">
+  <div class="filter"></div>
+  <div class="content-center">
+      <h2 style="text-align:center"><font color="white">SCOREBOARD</font></h2><br/><br/><br/>
+        <div class="text-center">
+          <h3><font color="white">
+            The individual investors can take help of the leading market investors.
+            </font>
+          </h3>
+          <h3><font color="white">
+              They can keep track of their investments and can identify funds that constantly beat the market.
+              </font>
+            </h3>
+          </div>
+  </div>
+</div>
+<div><h3>List of Filers</h3></div><br/>
+<table class="table-responsive table-striped table-bordered" width="100%">
+<thead>
+  <th>Filer Name</th>
+  <th>City</th>
+  <th>State</th>
+  <th>Market Value </th>
+  <th>Ranking</th>
+  <th>Largest Holding</th>
+</thead>
+<tbody>
+  <tr *ngFor="let filer of score | paginate: {itemsPerPage: 5, currentPage:page, id: '1'};let i=index">
+   
+     <td ><a (click)="loadInvestor(score.Filer_Name)">1111{{filer.investorName}}</a></td>
+      <td>{{filer.investorCity}}</td>
+      <td>{{filer.investorState}}</td>
+      <td>{{filer.sumMarketValue}}</td>
+      <td>{{filer.ranking}}</td> 
+      <td>{{filer.companyName}}</td>
+
+  </tr>
+  
+  </tbody>
+</table>
+<pagination-controls (pageChange)="page = $event" id="1"
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true">
+                </pagination-controls>

@@ -1,0 +1,92 @@
+<div class="page-header section-dark" style="background-image: url('assets/img/companybg2.jpg')">
+    <div class="filter"></div>
+    <div class="content-center">
+        <div class="container">
+            <div><font color="white">
+                    <br/>
+                <h2 style="text-align:center">{{companyDetails.name}}</h2><br/>
+                <h6>{{companyDetails.sector}}</h6>
+                <h6>{{companyDetails.address}}</h6><br/>
+
+                <ul >
+                    <li><h6>CITY : {{companyDetails.city}}</h6></li>
+                    <li><h6>STATE : {{companyDetails.state}}</h6></li>
+                    <li><h6>TICKER : {{companyDetails.ticker}}</h6></li>
+                </ul><br/>
+            </font>
+            </div><font color="white">
+            <h5> 
+                {{companyDetails.description}}
+            </h5>
+            </font>   
+        </div>          
+    </div>
+</div>
+<div class="container" style="padding:10px">
+<div><strong><h1 style="text-align:center">HOLDINGS</h1></strong></div><br/><br/>
+<h5>Filter according to quarter :
+    <select [ngModel]="selectedQuarter" (ngModelChange)="onChange($event)" name="sel2">
+        <option [value]="i" *ngFor="let i of allquarters">{{i}}</option>
+    </select>
+</h5>
+<div><h3 style="text-align:center"><b>List of Filers</b></h3></div><br/>
+<table bgcolor="#001133" class="table-responsive table-striped table-condensed table-bordered" width="100%">
+<thead style="color:ghostwhite ;text-align:center;">
+  <th>Filer</th>
+  <th>City</th>
+  <th>State</th>
+  <th>Shares Held</th>
+  <th>Market Value </th>
+  <th>% of Portfolio</th>
+  <th>Change in Shares</th>
+  <th>% change in Shares</th>
+</thead>
+<tbody>
+  <tr *ngFor="let filer of filers | paginate: {itemsPerPage: 5, currentPage:page, id: '1'}">
+      <td>{{filer.investorName}}</td>
+      <td>{{filer.investorCity}}</td>
+      <td>{{filer.investorState}}</td>
+      <td>{{filer.principalAmount}}</td>
+      <td>{{filer.marketValue }}</td>
+      <td>{{filer.perPortfolio}}</td>
+      <td>{{filer.changeInShares}}</td>
+      <td>{{filer.percentChange}}</td>
+  </tr>
+  
+  </tbody>
+</table>
+<pagination-controls (pageChange)="page = $event" id="1"
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true">
+                </pagination-controls>
+       
+ 
+ <div class="row">
+    <div class="col-md-12">
+        <div><strong><h1 style="text-align:center">TRENDS</h1></strong></div><br/><br/>
+
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+                <ngb-tabset [justify]="'center'">
+                    <ngb-tab title="Market Value">
+                        <ng-template ngbTabContent>
+                            <app-market [companyID]='companyID'></app-market>
+                          </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="Investor changes">
+                        <ng-template ngbTabContent>
+                            
+                                <app-compCharts [companyID]='companyID'></app-compCharts>
+                            
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+</div>

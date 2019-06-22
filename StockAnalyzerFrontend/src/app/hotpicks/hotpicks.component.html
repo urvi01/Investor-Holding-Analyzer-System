@@ -1,0 +1,71 @@
+<div class="page-header section-dark" style="background-image: url('assets/img/hot-cold.jpg')">
+  <div class="filter"></div>
+  <div class="content-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-6"><font color="white">
+            <h3> <b> The most trending companies whose stocks are being purchased largely by top investors are called   <strong style="color:green">HOT PICKS</strong>.</b></h3>
+            <br/>
+            <div class="row">
+              <div class="col-3"></div>
+              <div class="col-9">
+              <button type="button" class="btn btn-outline-success btn-round btn-lg" (click)="tohot()"><b>HOT BUYS</b></button>
+                </div>
+            </div>
+          </font>
+          </div>
+          <div class="col-6">
+              <font color="white">
+              <h3> <b>   The least trending companies whose stocks are currently either being sold or are static are called <strong style="color:red">COLD SELLS</strong>.</b></h3>
+              <br/>
+              <div class="row">
+                  <div class="col-3"></div>
+                  <div class="col-9">
+                  <button type="button" class="btn btn-outline-danger btn-round btn-lg" (click)="tocold()">Cold Sells</button>
+                    </div>
+                  </div>
+              </font>
+          </div>
+         </div>
+      </div>
+  </div>
+</div>
+<div class="container">
+  <div><h3>Company List</h3></div><br/>
+  <table bgcolor=" #a3a3c2" class="table-responsive table-striped table-condensed table-bordered" width="100%">
+  <thead style="color:ghostwhite ;height:20%">
+    <th>Company Name</th>
+    <th>Ticker</th>
+    <th>Sector</th>
+    <th># of owners</th>
+    <th>Market Value</th>
+    <th>Shares held</th>
+    <th>Change in Shares</th>
+    <th>Largest Holder</th>
+  </thead>
+  <tbody *ngIf="check" >
+      <tr  *ngFor="let buy of hotbuys">
+       <td ><a (click)="loadCompany(buy.companyID)">111111111{{buy.companyName}}</a></td>
+        <td>{{buy.ticker}}</td>
+        <td>{{buy.sector}}</td>
+        <td>{{buy.numFilers}}</td>
+        <td>{{buy.sumMarketValue}}</td>
+        <td>{{buy.sumPrincipalAmount}}</td>
+        <td>{{buy.sumChangeInShares}}</td>
+        <td>{{buy.largestHolder}}</td>
+        </tr>
+  </tbody>
+  <tbody *ngIf="!check">
+        <tr  *ngFor="let sell of coldsells">
+            <td><a (click)="loadCompany(sell.companyID)">{{sell.companyName}}</a></td>
+            <td>{{sell.ticker}}</td>
+            <td>{{sell.sector}}</td>
+            <td>{{sell.numFilers}}</td>
+            <td>{{sell.sumMarketValue}}</td>
+            <td>{{sell.sumPrincipalAmount}}</td>
+            <td>{{sell.sumChangeInShares}}</td>
+            <td>{{sell.largestHolder}}</td>
+        </tr>
+  </tbody> 
+  </table>
+</div>
