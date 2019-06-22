@@ -1,4 +1,4 @@
-Front End for Stock Analyser
+Investor Holding Analyzer System
 
 Objective - Build a service which can process historical shareholding information of companies to come up with interesting analytics.
 
