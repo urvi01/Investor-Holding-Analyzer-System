@@ -38,3 +38,9 @@ Additional Information -
 
 US big investor holding data of past year is freely available. Visit www.whalewisdom.com for API to use to extract that data.
 
+Output:
+
+![alt text](https://github.com/urvi01/Investor-Holding-Analyzer-System/blob/master/Screenshots/MainPage.JPG)
+
+![alt text](https://github.com/urvi01/Investor-Holding-Analyzer-System/blob/master/Screenshots/SectorAllocation.JPG)
+
